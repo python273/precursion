@@ -13,7 +13,7 @@ def sumrange(x):
     r = sumrange(x - 1)
     return x + r
 
-print(sumrange(10)  # 55
+print(sumrange(10))  # 55
 ```
 Pretty simple. But what if we call it with bigger argument
 ```python
@@ -22,6 +22,8 @@ print(sumrange(1000))
 ```
 Let's fix it with precursion module:
 ```python
+from precursion import precurse
+
 @precurse
 def sumrange(x):
     if x == 0:
