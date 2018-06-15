@@ -4,7 +4,7 @@ precursion [![PyPI](https://img.shields.io/pypi/v/precursion.svg)](https://pypi.
 
 ## Usage
 
-Ok, let's write recursive function:
+Ok, let's write some recursive function:
 ```python
 def sumrange(x):
     if x == 0:
@@ -15,7 +15,7 @@ def sumrange(x):
 
 print(sumrange(10))  # 55
 ```
-Pretty simple. But what if we call it with bigger argument
+Pretty simple. But what if we pass a large number as the argument
 ```python
 print(sumrange(1000))
 # RecursionError: maximum recursion depth exceeded
@@ -44,7 +44,7 @@ That's it!
 
 #### What is `.r` in `sumrange.r`?
 
-It's unwrapped function, so you `yield` unwrapped generator
+It's the unwrapped function, so you `yield` an unwrapped generator
 
 ## Pros and cons:
 
@@ -53,5 +53,7 @@ The code looks cleaner. Yep.
 
 #### Cons
 Function calls have performance and memory overhead, so using
-the decorator is slower than if you use Tail-call optimization via `while`
-or implement a stack inside a function.
+ this decorator is slower than if you replace recursive calls with
+ a stack with a while-loop or
+ a [tail recursive call](https://en.wikipedia.org/wiki/Tail_call) with
+ a while-loop.
